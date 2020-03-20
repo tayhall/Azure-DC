@@ -1,0 +1,18 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "adminUsername": {
+      "value": "Andrew"
+    },
+    "adminPassword": {
+      "value": "https://coronavirus.vault.azure.net/secrets/ITSecret/4beac336dbde423498234823cf2dde86"
+    },
+    "domainName": {
+      "value": "scukdom.local"
+    },
+    "dnsPrefix": {
+      "value": "GEN-UNIQUE"
+    }
+  }
+}
