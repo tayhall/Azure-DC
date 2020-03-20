@@ -2,8 +2,8 @@
 $Location = "East US" 
 $AdminUsername = Andrew
 $AdminPassword = "https://coronavirus.vault.azure.net/secrets/ITSecret/4beac336dbde423498234823cf2dde86"
-$DomainName = "SCUKDOM"
-$DnsPrefix
+$DomainName = "SCUKDOM.local"
+$DnsPrefix = "SCUKDOM"
 $VmSize = "Standard_DS1_V2"
 $_artifactsLocation
 $_artifactsLocationSasToken
@@ -12,22 +12,15 @@ $VirtualNetworkName = "adLAN"
 $VirtualNetworkAddressRange = "172.16.1.0/24"
 $LoadBalancerFEIPName
 $BackendAddressPoolName
-$ResourceGroupName = $DomainName + "rg"
+$ResourceGroupName = $DnsPrefix + "rg"
 $InboundNatRulesName "adRDP"
-Network Interface Name
-adNic
-Private IP Address
-10.0.0.4
-Subnet Name
-adSubnet
-Subnet Range
-10.0.0.0/24
-Public IP Address Name
-adPublicIP
-Availability Set Name
-adAvailabiltySet
-Load Balancer Name
-adLoadBalancer
+$NetworkInterfaceName "adNic"
+$PrivateIPAddress = "172.16.100.100"
+$SubnetName = "adSubnet"
+$SubnetRange = "172.16.100.0/24"
+$PublicIPAddressName = "adPublicIP"
+$AvailabilitySetName "adAvailabiltySet"
+$LoadBalancerName  = "adLoadBalancer"
 
 
 
