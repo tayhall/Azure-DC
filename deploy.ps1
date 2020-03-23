@@ -27,8 +27,8 @@ $LoadBalancerName  = "adLoadBalancer"
 # Deploy the new resource group
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location 
 
-# Assign public IP
-New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateParameterUri -TemplateURI "https://github.com/tayhall/Azure-DC/blob/master/azuredeploy.json";
+# Assign public IP Range
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateParameterUri "https://github.com/tayhall/Azure-DC/blob/master/publicip/parameters.json" -TemplateURI "https://github.com/tayhall/Azure-DC/blob/master/publicip/template.json";
 -DomainNameLabel $dnsPrefix 
 
 
