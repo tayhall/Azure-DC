@@ -1,6 +1,6 @@
 # Inital Variables
 $Location = "East US" 
-$AdminUsername = Andrew
+$AdminUsername = "Andrew"
 $AdminPassword = "https://coronavirus.vault.azure.net/secrets/ITSecret/4beac336dbde423498234823cf2dde86"
 $DomainName = "SCUKDOM"
 $DnsPrefix = "SCUKDOM"
@@ -12,7 +12,7 @@ $VirtualNetworkName = "adLAN"
 $VirtualNetworkAddressRange = "172.16.1.0/24"
 $LoadBalancerFEIPName = "LBFE"
 $BackendAddressPoolName = "LBBE"
-$ResourceGroupName = $DnsPrefix + "rg"
+$ResourceGroupName = "IAASrg"
 $InboundNatRulesName = "adRDP"
 $NetworkInterfaceName = "adNic"
 $PrivateIPAddress = "172.16.100.100"
@@ -28,8 +28,7 @@ $LoadBalancerName  = "adLoadBalancer"
 New-AzResourceGroup -Name $ResourceGroupName -Location $Location 
 
 # Assign public IP Range
-New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateParameterUri "https://github.com/tayhall/Azure-DC/blob/master/publicip/parameters.json" -TemplateURI "https://github.com/tayhall/Azure-DC/blob/master/publicip/template.json";
--DomainNameLabel $dnsPrefix 
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName -TemplateParameterUri "https://github.com/tayhall/Azure-DC/blob/master/publicip/parameters.json" -TemplateURI "https://github.com/tayhall/Azure-DC/blob/master/publicip/template.json" -domainNameLabel $dnsPrefix 
 
 
 # Deploy the DC
