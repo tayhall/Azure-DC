@@ -6,7 +6,12 @@
       "value": "Andrew"
     },
     "adminPassword": {
-      "value": "https://coronavirus.vault.azure.net/secrets/ITSecret/4beac336dbde423498234823cf2dde86"
+      "reference": {
+          "keyVault": {
+          "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+          },
+          "secretName": "vmAdminPassword"
+      }
     },
     "domainName": {
       "value": "scukdom.local"
