@@ -73,4 +73,4 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 # Deploy the DC
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
 -TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" `
--adminUsername $AdminUsername -adminPassword $SecurePass -domainName $domainName -dnsPrefix $dnsPrefix
+-adminUsername $AdminUsername -domainName $domainName -dnsPrefix $dnsPrefix
