@@ -10,7 +10,7 @@
           "keyVault": {
           "id": "/subscriptions/6eee9c61-be91-4d86-ba73-942cfa7df3a5/resourcegroups/Seabusrg/providers/Microsoft.KeyVault/vaults/Seabus"
           },
-          "secretName": "vmAdminPassword"
+          "secretName": "ExamplePassword"
       }
     },
     "domainName": {
