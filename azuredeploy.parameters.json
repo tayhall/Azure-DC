@@ -8,7 +8,7 @@
     "adminPassword": {
       "reference": {
           "keyVault": {
-          "id": "/subscriptions/6eee9c61-be91-4d86-ba73-942cfa7df3a5/resourceGroups/Seabusrg/providers/Microsoft.KeyVault/vaults/Seabus"
+          "id": "https://seabus.vault.azure.net/secrets/vmAdminPassword/057e436b28e94e6f8322417aef829834"
           },
           "secretName": "vmAdminPassword"
       }
