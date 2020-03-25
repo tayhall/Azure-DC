@@ -28,31 +28,13 @@ loadBalancerName              String                     adLoadBalancer
 #>
 # Inital Variables
 $Location = "East US" 
-$AdminUsername = "Andrew"
-$AdminPassword = "https://coronavirus.vault.azure.net/secrets/ITSecret/4beac336dbde423498234823cf2dde86"
 $domainName = "corp.SCUKDOM.local"
 $domainNameLabel ="SCUKDOM"
-$dnsPrefix = "andybuswan6"
+$dnsPrefix = "andybuswan7"
+$resourceGroupName = "Seabusrg"
 $VmSize = "Standard_DS1_V2"
-$VirtualMachineName = "MYDC1"
-$VirtualNetworkName = "adLAN"
-$VirtualNetworkAddressRange = "172.16.1.0/24"
-$LoadBalancerFEIPName = "LBFE"
-$BackendAddressPoolName = "LBBE"
-#$ResourceGroupName = "IAASrg6"
-$InboundNatRulesName = "adRDP"
-$NetworkInterfaceName = "adNic"
-$PrivateIPAddress = "172.16.100.100"
-$SubnetName = "adSubnet" 
-$SubnetRange = "172.16.100.0/24"
-$PublicIPAddressName = "adPublicIP"
-$AvailabilitySetName = "adAvailabiltySet"
-$LoadBalancerName  = "adLoadBalancer"
 
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-
-# Deploy the new resource group
-#New-AzResourceGroup -Name $ResourceGroupName -Location $Location 
 
 # Create a keyVault
 
@@ -72,5 +54,5 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 # Deploy the DC
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
--TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" `
--adminUsername $AdminUsername -domainName $domainName -dnsPrefix $dnsPrefix
+-TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" -TemplateParamterURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.parameters.json"`
+-domainName $domainName -dnsPrefix $dnsPrefix
