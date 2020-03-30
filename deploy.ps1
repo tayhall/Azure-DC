@@ -49,8 +49,6 @@ $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/
 New-AzResourceGroup -Name $resourceGroupName -Location $location
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
 
-#$Pass = "ILikeSecurePassword1!"
-#$SecurePass = ConvertTo-SecureString -String $Pass -AsPlainText -Force
 
 # Deploy the DC
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
