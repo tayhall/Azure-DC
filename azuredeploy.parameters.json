@@ -8,7 +8,7 @@
     "adminPassword": {
       "reference": {
           "keyVault": {
-          "id": "/subscriptions/6eee9c61-be91-4d86-ba73-942cfa7df3a5/resourcegroups/Seabusrg/providers/Microsoft.KeyVault/vaults/Seabus"
+          "id": "/subscriptions/b327bdc3-109c-433a-960e-3bd4ad955a2f/resourceGroups/generalGroupRG/providers/Microsoft.KeyVault/vaults/mySecretLocker99"
           },
           "secretName": "ExamplePassword"
       }

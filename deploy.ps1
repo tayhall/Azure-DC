@@ -27,11 +27,11 @@ loadBalancerName              String                     adLoadBalancer
 
 #>
 # Inital Variables
-$Location = "East US" 
-$domainName = "corp.SCUKDOM.local"
-$domainNameLabel ="SCUKDOM"
-$dnsPrefix = "andybuswan7"
-$resourceGroupName = "Seabusrg"
+$Location = "West US 2" 
+$domainName = "corp.UKTSTDOM.local"
+$domainNameLabel ="UKTSTDOM"
+$dnsPrefix = "myDNSPre"
+$resourceGroupName = "azDomrg"
 $VmSize = "Standard_DS1_V2"
 
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -39,7 +39,7 @@ $projectName = Read-Host -Prompt "Enter a project name that is used for generati
 # Create a keyVault
 
 # $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
-$upn = "AndyBusTrain_outlook.com#EXT#@AndyBusTrainoutlook.onmicrosoft.com"
+$upn = "AndyDevApril_outlook.com#EXT#@AndyDevTrainoutlook.onmicrosoft.com"
 $secretValue = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 $resourceGroupName = "${projectName}rg"
 $keyVaultName = $projectName
