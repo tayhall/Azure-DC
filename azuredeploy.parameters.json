@@ -8,9 +8,9 @@
     "adminPassword": {
       "reference": {
           "keyVault": {
-          "id": "/subscriptions/b327bdc3-109c-433a-960e-3bd4ad955a2f/resourceGroups/generalGroupRG/providers/Microsoft.KeyVault/vaults/mySecretLocker99"
+          "id": "/subscriptions/66080a1b-ac6c-4b8e-b95f-c2a665fbeeff/resourceGroups/myProjectZrg/providers/Microsoft.KeyVault/vaults/myProjectZkey"
           },
-          "secretName": "ExamplePassword"
+          "secretName": "vmAdminPassword"
       }
     },
     "domainName": {

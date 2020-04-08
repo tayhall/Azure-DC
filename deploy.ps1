@@ -27,11 +27,10 @@ loadBalancerName              String                     adLoadBalancer
 
 #>
 # Inital Variables
-$Location = "West US 2" 
+$Location = "East US" 
 $domainName = "corp.UKTSTDOM.local"
 $domainNameLabel ="UKTSTDOM"
 $dnsPrefix = "myDNSPre"
-#$resourceGroupName = "azDomrg"
 $VmSize = "Standard_DS1_V2"
 
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -42,15 +41,28 @@ $projectName = Read-Host -Prompt "Enter a project name that is used for generati
 $upn = "Andrew Hall"
 $secretValue = Read-Host -Prompt "Enter the virtual machine administrator password" -AsSecureString
 $resourceGroupName = $projectName + "rg"
-$keyVaultName = 'mySecretLocker99'
+$keyVaultName = $projectName + 'key'
 $adUserId = (Get-AzADUser -DisplayName $upn).Id
 $templateUri = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorials-use-key-vault/CreateKeyVault.json"
 
 New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+$outputs = New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
 
+# To get the output from a script use the below.
+#$outputs = New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri -keyVaultName $keyVaultName -adUserId $adUserId -secretValue $secretValue
+
+#foreach ($key in $outputs.Outputs.keys) {
+#    if ($key -eq "keyVaultId") {
+#        $NewKeyVaultId = $outputs.Outputs[$key].value
+#    }
+#}
+
+
+# Get the secrets keyid
+#$NewKeyVaultId = (Get-AzureRmKeyVault -VaultName $keyVaultName).ResourceId
 
 # Deploy the DC
+
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
 -TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" -TemplateParameterURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.parameters.json"`
--domainName $domainName -dnsPrefix $dnsPrefix
+-domainName $domainName -dnsPrefix $dnsPrefix -adminPassword $secretValue
