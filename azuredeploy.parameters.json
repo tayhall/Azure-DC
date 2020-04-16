@@ -14,10 +14,10 @@
       }
     },
     "domainName": {
-      "value": "corp.SCUKDOM.local"
+      "value": "corp.UKTSTDOM.local"
     },
     "dnsPrefix": {
-      "value": "mywanhere"
+      "value": "mywan"
     }
   }
 }

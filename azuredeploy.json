@@ -4,6 +4,7 @@
     "parameters": {
         "adminUsername": {
             "type": "string",
+            "defaultValue": "Andrew",
             "metadata": {
                 "description": "The name of the administrator account of the new VM and domain"
             }
@@ -22,6 +23,7 @@
         },
         "dnsPrefix": {
             "type": "string",
+            "defaultValue": "mywan",
             "metadata": {
                 "description": "The DNS prefix for the public IP address used by the Load Balancer"
             }

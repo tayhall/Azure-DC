@@ -5,8 +5,8 @@ Name                          Type                       Value
 ============================  =========================  ==========
 adminUsername                 String                     Andrew
 adminPassword                 SecureString
-domainName                    String                     corp.SCUKDOM.local
-dnsPrefix                     String                     andybuswan
+domainName                    String                     corp.UKTSTDOM.local
+dnsPrefix                     String                     mywan
 vmSize                        String                     Standard_D2s_v3
 _artifactsLocation            String                     https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json
 _artifactsLocationSasToken    SecureString
@@ -30,8 +30,9 @@ loadBalancerName              String                     adLoadBalancer
 $Location = "East US" 
 $domainName = "corp.UKTSTDOM.local"
 $domainNameLabel ="UKTSTDOM"
-$dnsPrefix = "myDNSPre"
+$dnsPrefix = "mywan"
 $VmSize = "Standard_DS1_V2"
+$adminUsername = "Andrew"
 
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 
@@ -64,5 +65,4 @@ $outputs = New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -
 # Deploy the DC
 
 New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroupName `
--TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" -TemplateParameterURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.parameters.json"`
--domainName $domainName -dnsPrefix $dnsPrefix -adminPassword $secretValue
+-TemplateURI "https://raw.githubusercontent.com/tayhall/Azure-DC/master/azuredeploy.json" -domainName $domainName -dnsPrefix $dnsPrefix -adminUsername $adminUsername -adminPassword $secretValue
